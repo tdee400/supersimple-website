@@ -227,67 +227,67 @@
     </div>
 
 <div class="container description">
-    <p>Questions? Ideas on how to improve this website? Get in touch at tdeeplanner@gmail.com</a>.♡</p>
+    <p>Questions? Get in touch at tdeeplanner@gmail.com</a>♡</p>
 </div>
 
     <script>
-        function switchTab(tab) {
-            const metricTab = document.getElementById('metric-tab');
-            const imperialTab = document.getElementById('imperial-tab');
-            const tabs = document.querySelectorAll('.tab');
+       function switchTab(tab) {
+    const metricTab = document.getElementById('metric-tab');
+    const imperialTab = document.getElementById('imperial-tab');
+    const tabs = document.querySelectorAll('.tab');
 
-            if (tab === 'metric') {
-                metricTab.classList.remove('hidden');
-                imperialTab.classList.add('hidden');
-                tabs[0].classList.add('active');
-                tabs[1].classList.remove('active');
-            } else {
-                metricTab.classList.add('hidden');
-                imperialTab.classList.remove('hidden');
-                tabs[0].classList.remove('active');
-                tabs[1].classList.add('active');
-            }
-        }
+    if (tab === 'metric') {
+        metricTab.classList.remove('hidden');
+        imperialTab.classList.add('hidden');
+        tabs[0].classList.add('active');
+        tabs[1].classList.remove('active');
+    } else {
+        metricTab.classList.add('hidden');
+        imperialTab.classList.remove('hidden');
+        tabs[0].classList.remove('active');
+        tabs[1].classList.add('active');
+    }
+}
 
-        function formatNumber(num) {
-            return num.toLocaleString();
-        }
+function formatNumber(num) {
+    return num.toLocaleString();
+}
 
-        function calculateTDEE(unit) {
-            const resultDiv = document.getElementById('result');
-            let gender, age, weight, height, activity;
+function calculateTDEE(unit) {
+    const resultDiv = document.getElementById('result');
+    let gender, age, weight, height, activity;
 
-            if (unit === 'metric') {
-                gender = document.getElementById('gender').value;
-                age = parseInt(document.getElementById('age').value);
-                weight = parseFloat(document.getElementById('weight').value);
-                height = parseFloat(document.getElementById('height').value);
-                activity = parseFloat(document.getElementById('activity').value);
-            } else {
-                gender = document.getElementById('gender-imperial').value;
-                age = parseInt(document.getElementById('age-imperial').value);
-                weight = parseFloat(document.getElementById('weight-imperial').value) * 0.453592; // Convert lbs to kg
-                height = parseFloat(document.getElementById('height-imperial').value) * 2.54; // Convert inches to cm
-                activity = parseFloat(document.getElementById('activity-imperial').value);
-            }
+    if (unit === 'metric') {
+        gender = document.getElementById('gender').value;
+        age = parseInt(document.getElementById('age').value);
+        weight = parseFloat(document.getElementById('weight').value);
+        height = parseFloat(document.getElementById('height').value);
+        activity = parseFloat(document.getElementById('activity').value);
+    } else {
+        gender = document.getElementById('gender-imperial').value;
+        age = parseInt(document.getElementById('age-imperial').value);
+        weight = parseFloat(document.getElementById('weight-imperial').value) * 0.453592; // Convert lbs to kg
+        height = parseFloat(document.getElementById('height-imperial').value) * 2.54; // Convert inches to cm
+        activity = parseFloat(document.getElementById('activity-imperial').value);
+    }
 
-            if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(activity)) {
-                resultDiv.textContent = 'Please fill in all fields correctly.';
-                resultDiv.classList.remove('hidden');
-                return;
-            }
+    if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(activity)) {
+        resultDiv.textContent = 'Please fill in all fields correctly.';
+        resultDiv.classList.remove('hidden');
+        return;
+    }
 
-            let bmr;
-            if (gender === 'male') {
-                bmr = 10 * weight + 6.25 * height - 5 * age + 5; // Mifflin-St Jeor for men
-            } else {
-                bmr = 10 * weight + 6.25 * height - 5 * age - 161; // Mifflin-St Jeor for women
-            }
+    let bmr;
+    if (gender === 'male') {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5; // Mifflin-St Jeor for men
+    } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161; // Mifflin-St Jeor for women
+    }
 
-            const tdee = bmr * activity;
-            resultDiv.textContent = Your TDEE is approximately ${formatNumber(Math.round(tdee))} calories/day.;
-            resultDiv.classList.remove('hidden');
-        }
+    const tdee = bmr * activity;
+    resultDiv.textContent = `Your TDEE is approximately ${formatNumber(Math.round(tdee))} calories/day.`;
+    resultDiv.classList.remove('hidden');
+}
     </script>
 </body>
 </html>
