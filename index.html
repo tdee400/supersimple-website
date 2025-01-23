@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TDEE Calculator</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f8f9fa;
@@ -23,26 +20,29 @@
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
         }
 
         h1 {
-            font-size: 24px;
-            font-weight: bold;
             text-align: center;
+            color: #002244;
+            font-size: 30px;
+            font-style: italic;
         }
 
         .subheadline {
-            font-size: 16px;
-            color: #495057;
-            text-align: center;
-            margin-top: 10px;
-            line-height: 1.5;
-        }
+    font-size: 16px; /* Make it smaller than the headline */
+    color: #495057; /* Dark gray color for subtle text */
+    text-align: center; /* Center the text below the headline */
+    margin-top: 10px; /* Space between headline and subheadline */
+}
+      .headline {
+    text-align: center;
+    color: #495057;
+    font-size: 10px; /* Make the text smaller */
+    margin-bottom: 20px;
+}
 
         .description {
-            max-width: 600px;
-            margin: 0 auto;
             font-size: 14px;
             color: #6c757d;
             margin-bottom: 20px;
@@ -89,7 +89,6 @@
             border-radius: 6px;
             font-size: 16px;
             color: #495057;
-            box-sizing: border-box;
         }
 
         input::placeholder {
@@ -124,34 +123,20 @@
         .hidden {
             display: none;
         }
-
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-group input, .form-group select {
-            max-width: 100%;
-            width: 100%;
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Learn how many calories you burn daily</h1>
-        <p class="subheadline">Find out with our easy, no-nonsense TDEE calculator!</p>
-    </div>
+    <h1>Learn how many calories you burn daily</h1>
+    <p class="subheadline">Find out with our easy, no-nonsense TDEE calculator!</p>
+</div>
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('metric')">Metric</button>
+            <button class="tab" onclick="switchTab('imperial')">Imperial</button>
+        </div>
 
-    <div class="tabs">
-        <button class="tab active" onclick="switchTab('metric')">Metric</button>
-        <button class="tab" onclick="switchTab('imperial')">Imperial</button>
-    </div>
-
-    <form id="tdee-form">
-        <div id="metric-tab" class="tab-content">
-            <div class="form-container">
+        <form id="tdee-form">
+            <div id="metric-tab" class="tab-content">
                 <div class="form-group">
                     <label for="gender">Gender:</label>
                     <select id="gender" required>
@@ -188,10 +173,8 @@
 
                 <button type="button" class="btn" onclick="calculateTDEE('metric')">Calculate TDEE</button>
             </div>
-        </div>
 
-        <div id="imperial-tab" class="tab-content hidden">
-            <div class="form-container">
+            <div id="imperial-tab" class="tab-content hidden">
                 <div class="form-group">
                     <label for="gender">Gender:</label>
                     <select id="gender-imperial" required>
@@ -228,18 +211,19 @@
 
                 <button type="button" class="btn" onclick="calculateTDEE('imperial')">Calculate TDEE</button>
             </div>
-        </div>
-    </form>
+        </form>
 
-    <div class="result hidden" id="result"></div>
+        <div class="result hidden" id="result"></div>
+
+    </div>
 
     <div class="container description">
         <p>TDEE (Total Daily Energy Expenditure) represents the total number of calories your body burns in a day, accounting for your Basal Metabolic Rate (BMR) and activity level. Our calculator uses the Mifflin-St Jeor Equation, a scientifically validated method for estimating caloric needs based on gender, age, weight, height, and activity level.</p>
     </div>
 
-    <div class="container description">
-        <p>Questions? Feel free to reach out to us at tdeeplanner@gmail.com. ♡</p>
-    </div>
+<div class="container description">
+    <p>Questions? Feel free to reach out to us at tdeeplanner@gmail.com. ♡</p>
+</div>
 
     <script>
         function switchTab(tab) {
