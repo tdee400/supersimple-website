@@ -6,34 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TDEE Calculator</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
+   body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.container {
+    max-width: 600px;  /* Ensure this remains as the max width */
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent anything from overflowing */
+}
 
-        h1 {
-            text-align: center;
-            color: #002244;
-            font-size: 30px;
-            font-style: italic;
-        }
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
 
-        .subheadline {
-    font-size: 16px; /* Make it smaller than the headline */
-    color: #495057; /* Dark gray color for subtle text */
-    text-align: center; /* Center the text below the headline */
-    margin-top: 10px; /* Space between headline and subheadline */
+.subheadline {
+    font-size: 16px;
+    color: #495057;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5;  /* Optional: Adds some space between lines for readability */
 }
       .headline {
     text-align: center;
