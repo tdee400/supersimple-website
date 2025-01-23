@@ -24,7 +24,7 @@
        .header-container, .container {
     max-width: 600px; /* Ensures both header and body have the same width */
     margin: 0 auto; /* Centers the header and body */
-    padding: 0 20px; /* Adds consistent spacing */
+    padding: 0; /* Adds consistent spacing */
     box-sizing: border-box; /* Ensures padding doesn't stretch the width */
 }
 
@@ -160,15 +160,19 @@
 </head>
 <body>
     <!-- Header Section -->
-    <div class="header-container">
-        <header class="header">
-            <div class="logo">TDEE Planner</div>
-            <a href="/blog">Visit Our Blog</a>
-        </header>
-    </div>
-    
-    <div class="container">
-        <h1>Learn how many calories you burn daily with our easy, no-nonsense TDEE calculator.</h1>
+ <div class="header-container">
+    <header class="header">
+        <div class="logo">TDEE Planner</div>
+        <a href="/blog">Visit Our Blog</a>
+    </header>
+</div>
+
+<div class="container">
+    <!-- Main body content -->
+    <h1>Learn how many calories you burn daily with our easy, no-nonsense TDEE calculator.</h1>
+    <p class="headline"></p>
+    <!-- ... -->
+</div>
 
         <div class="tabs">
             <button class="tab active" onclick="switchTab('metric')">Metric</button>
