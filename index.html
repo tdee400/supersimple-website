@@ -36,19 +36,20 @@
             margin-bottom: 20px;
         }
 
-        .description {
-            font-size: 14px;
-            color: #6c757d;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            border-bottom: 1px solid #ced4da; /* Thin line after the TDEE explanation */
-            padding-bottom: 20px; /* Add some space before the line */
-        }
-
-.contact-info {
+       .description {
     font-size: 14px;
-    color: #495057;
-    padding-top: 20px; /* Space above the contact info */
+    color: #6c757d;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.description p:last-child {
+    margin-top: 20px; /* Add space above the contact info */
+}
+
+.description p:first-child {
+    border-bottom: 1px solid #ced4da; /* Thin line after the explanation text */
+    padding-bottom: 10px; /* Space between the text and the line */
 }
 
         .tabs {
