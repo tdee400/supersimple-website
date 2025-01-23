@@ -36,29 +36,26 @@
             margin-bottom: 20px;
         }
 
-.description {
-    text-align: left;
-    font-size: 14px;
-    color: #6c757d;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
+        .description {
+            text-align: left;  /* Left-align all text in this section */
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
-.description p:last-child {
-    margin-top: 20px; /* Add space above the contact info */
-}
-
-.description p:first-child {
-    text-align: left;
-    border-bottom: 1px solid rgba(206, 212, 218, 0.5); /* Transparent gray line */
-    padding-bottom: 10px; /* Space between the text and the line */
-    width: 50%; /* Make the line half the width */
-    margin: 0 auto; /* Center the line */
-}
+        .description p:first-child {
+            text-align: left;  /* Ensure first paragraph aligns left */
+            border-bottom: 1px solid rgba(206, 212, 218, 0.5);
+            padding-bottom: 10px;
+            width: 100%;  /* Remove width limitation */
+            margin: 0;
+        }
 
         .tabs {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Align to the left */
+            margin-top: 40px;
             margin-bottom: 20px;
         }
 
@@ -80,6 +77,8 @@
 
         .form-group {
             margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         label {
@@ -96,15 +95,9 @@
             border-radius: 6px;
             font-size: 16px;
             color: #495057;
-            box-sizing: border-box;  /* Ensure padding and border are included in width */
+            box-sizing: border-box;
         }
 
-/* Optional: Adjust the .form-group padding to ensure consistency */
-.form-group {
-    margin-bottom: 15px;    /* Consistent spacing between form elements */
-    display: flex;          /* Flex layout for even distribution */
-    flex-direction: column; /* Stack the label, input/select vertically */
-}
         input::placeholder {
             color: #adb5bd;
         }
@@ -138,43 +131,24 @@
             display: none;
         }
 
-        .ad-space {
-            margin: 20px 0;
+        /* New CSS for the combined section */
+        .container.description {
+            margin-top: 20px;
             padding: 15px;
-            text-align: center;
-            background-color: #f1f3f5;
-            border: 1px dashed #adb5bd;
+            background-color: #f8f9fa;
             border-radius: 6px;
-            color: #495057;
             font-size: 14px;
         }
 
-   /* New CSS for the combined section */
-        .container.description {
-            margin-top: 20px;  /* Ensure there's space above */
-            padding: 15px;     /* Add some padding for visual separation */
-            background-color: #f8f9fa;  /* Light background for the section */
-            border-radius: 6px;   /* Rounded corners for the section */
-            font-size: 14px;     /* Adjust font size if needed */
-            text-align: left;  /* Center align text */
-        }
-
         .container.description a {
-            color: #007bff;  /* Link color */
-            text-decoration: none;  /* Remove underline */
+            color: #007bff;
+            text-decoration: none;
         }
 
         .container.description a:hover {
-            text-decoration: underline;  /* Add underline on hover for the link */
+            text-decoration: underline;
         }
 
-        .tabs {
-    display: flex;
-    justify-content: flex-start; /* Align to the left */
-    margin-top: 40px; /* Push the buttons further down */
-    margin-bottom: 20px;
-}
-        
     </style>
 </head>
 <body>
@@ -269,70 +243,70 @@
 
     </div>
 
-<div class="container description">
-    <p>TDEE (Total Daily Energy Expenditure) represents the total number of calories your body burns in a day, accounting for your Basal Metabolic Rate (BMR) and activity level. Our calculator uses the Mifflin-St Jeor Equation, a scientifically validated method for estimating caloric needs based on gender, age, weight, height, and activity level.</p>
+    <div class="container description">
+        <p>TDEE (Total Daily Energy Expenditure) represents the total number of calories your body burns in a day, accounting for your Basal Metabolic Rate (BMR) and activity level. Our calculator uses the Mifflin-St Jeor Equation, a scientifically validated method for estimating caloric needs based on gender, age, weight, height, and activity level.</p>
 
-    <p>Questions? Get in touch at tdeeplanner@gmail.com. ♡</p>
-</div>
+        <p>Questions? Get in touch at tdeeplanner@gmail.com. ♡</p>
+    </div>
 
     <script>
-       function switchTab(tab) {
-    const metricTab = document.getElementById('metric-tab');
-    const imperialTab = document.getElementById('imperial-tab');
-    const tabs = document.querySelectorAll('.tab');
+        function switchTab(tab) {
+            const metricTab = document.getElementById('metric-tab');
+            const imperialTab = document.getElementById('imperial-tab');
+            const tabs = document.querySelectorAll('.tab');
 
-    if (tab === 'metric') {
-        metricTab.classList.remove('hidden');
-        imperialTab.classList.add('hidden');
-        tabs[0].classList.add('active');
-        tabs[1].classList.remove('active');
-    } else {
-        metricTab.classList.add('hidden');
-        imperialTab.classList.remove('hidden');
-        tabs[0].classList.remove('active');
-        tabs[1].classList.add('active');
-    }
-}
+            if (tab === 'metric') {
+                metricTab.classList.remove('hidden');
+                imperialTab.classList.add('hidden');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                metricTab.classList.add('hidden');
+                imperialTab.classList.remove('hidden');
+                tabs[0].classList.remove('active');
+                tabs[1].classList.add('active');
+            }
+        }
 
-function formatNumber(num) {
-    return num.toLocaleString();
-}
+        function formatNumber(num) {
+            return num.toLocaleString();
+        }
 
-function calculateTDEE(unit) {
-    const resultDiv = document.getElementById('result');
-    let gender, age, weight, height, activity;
+        function calculateTDEE(unit) {
+            const resultDiv = document.getElementById('result');
+            let gender, age, weight, height, activity;
 
-    if (unit === 'metric') {
-        gender = document.getElementById('gender').value;
-        age = parseInt(document.getElementById('age').value);
-        weight = parseFloat(document.getElementById('weight').value);
-        height = parseFloat(document.getElementById('height').value);
-        activity = parseFloat(document.getElementById('activity').value);
-    } else {
-        gender = document.getElementById('gender-imperial').value;
-        age = parseInt(document.getElementById('age-imperial').value);
-        weight = parseFloat(document.getElementById('weight-imperial').value) * 0.453592; // Convert lbs to kg
-        height = parseFloat(document.getElementById('height-imperial').value) * 2.54; // Convert inches to cm
-        activity = parseFloat(document.getElementById('activity-imperial').value);
-    }
+            if (unit === 'metric') {
+                gender = document.getElementById('gender').value;
+                age = parseInt(document.getElementById('age').value);
+                weight = parseFloat(document.getElementById('weight').value);
+                height = parseFloat(document.getElementById('height').value);
+                activity = parseFloat(document.getElementById('activity').value);
+            } else {
+                gender = document.getElementById('gender-imperial').value;
+                age = parseInt(document.getElementById('age-imperial').value);
+                weight = parseFloat(document.getElementById('weight-imperial').value) * 0.453592; // Convert lbs to kg
+                height = parseFloat(document.getElementById('height-imperial').value) * 2.54; // Convert inches to cm
+                activity = parseFloat(document.getElementById('activity-imperial').value);
+            }
 
-    if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(activity)) {
-        resultDiv.textContent = 'Please fill in all fields correctly.';
-        resultDiv.classList.remove('hidden');
-        return;
-    }
+            if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(activity)) {
+                resultDiv.textContent = 'Please fill in all fields correctly.';
+                resultDiv.classList.remove('hidden');
+                return;
+            }
 
-    let bmr;
-    if (gender === 'male') {
-        bmr = 10 * weight + 6.25 * height - 5 * age + 5; // Mifflin-St Jeor for men
-    } else {
-        bmr = 10 * weight + 6.25 * height - 5 * age - 161; // Mifflin-St Jeor for women
-    }
+            let bmr;
+            if (gender === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5; // Mifflin-St Jeor for men
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161; // Mifflin-St Jeor for women
+            }
 
-    const tdee = bmr * activity;
-    resultDiv.textContent = `Your TDEE is approximately ${formatNumber(Math.round(tdee))} calories/day.`;
-    resultDiv.classList.remove('hidden');
-}
+            const tdee = bmr * activity;
+            resultDiv.textContent = `Your TDEE is approximately ${formatNumber(Math.round(tdee))} calories/day.`;
+            resultDiv.classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
