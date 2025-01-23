@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,44 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TDEE Calculator</title>
     <style>
-   body {
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f8f9fa;
-}
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
 
-.container {
-    max-width: 600px;  /* Ensure this remains as the max width */
-    margin: 0 auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevent anything from overflowing */
-}
+        .container {
+            max-width: 600px;  /* Ensure this remains as the max width */
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Prevent anything from overflowing */
+        }
 
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-}
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
 
-.subheadline {
-    font-size: 16px;
-    color: #495057;
-    text-align: center;
-    margin-top: 10px;
-    line-height: 1.5;  /* Optional: Adds some space between lines for readability */
-}
-      .headline {
-    text-align: center;
-    color: #495057;
-    font-size: 10px; /* Make the text smaller */
-    margin-bottom: 20px;
-}
+        .subheadline {
+            font-size: 16px;
+            color: #495057;
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.5;  /* Optional: Adds some space between lines for readability */
+        }
 
         .description {
+            max-width: 600px;  /* Ensure consistency */
+            margin: 0 auto;
             font-size: 14px;
             color: #6c757d;
             margin-bottom: 20px;
@@ -128,103 +123,102 @@ h1 {
 </head>
 <body>
     <div class="container">
-    <h1>Learn how many calories you burn daily</h1>
-    <p class="subheadline">Find out with our easy, no-nonsense TDEE calculator!</p>
-</div>
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('metric')">Metric</button>
-            <button class="tab" onclick="switchTab('imperial')">Imperial</button>
+        <h1>Learn how many calories you burn daily</h1>
+        <p class="subheadline">Find out with our easy, no-nonsense TDEE calculator!</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('metric')">Metric</button>
+        <button class="tab" onclick="switchTab('imperial')">Imperial</button>
+    </div>
+
+    <form id="tdee-form">
+        <div id="metric-tab" class="tab-content">
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" min="1" placeholder="kg" required>
+            </div>
+
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="number" id="height" min="1" placeholder="cm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity Level:</label>
+                <select id="activity" required>
+                    <option value="1.2">Sedentary (little or no exercise)</option>
+                    <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                    <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
+                    <option value="1.9">Super active (very hard exercise, physical job, or training twice a day)</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn" onclick="calculateTDEE('metric')">Calculate TDEE</button>
         </div>
 
-        <form id="tdee-form">
-            <div id="metric-tab" class="tab-content">
-                <div class="form-group">
-                    <label for="gender">Gender:</label>
-                    <select id="gender" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" min="1" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="weight">Weight:</label>
-                    <input type="number" id="weight" min="1" placeholder="kg" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="height">Height:</label>
-                    <input type="number" id="height" min="1" placeholder="cm" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="activity">Activity Level:</label>
-                    <select id="activity" required>
-                        <option value="1.2">Sedentary (little or no exercise)</option>
-                        <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
-                        <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
-                        <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
-                        <option value="1.9">Super active (very hard exercise, physical job, or training twice a day)</option>
-                    </select>
-                </div>
-
-                <button type="button" class="btn" onclick="calculateTDEE('metric')">Calculate TDEE</button>
+        <div id="imperial-tab" class="tab-content hidden">
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender-imperial" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
             </div>
 
-            <div id="imperial-tab" class="tab-content hidden">
-                <div class="form-group">
-                    <label for="gender">Gender:</label>
-                    <select id="gender-imperial" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age-imperial" min="1" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="weight">Weight:</label>
-                    <input type="number" id="weight-imperial" min="1" placeholder="lbs" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="height">Height:</label>
-                    <input type="number" id="height-imperial" min="1" placeholder="inches" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="activity">Activity Level:</label>
-                    <select id="activity-imperial" required>
-                        <option value="1.2">Sedentary (little or no exercise)</option>
-                        <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
-                        <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
-                        <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
-                        <option value="1.9">Super active (very hard exercise, physical job, or training twice a day)</option>
-                    </select>
-                </div>
-
-                <button type="button" class="btn" onclick="calculateTDEE('imperial')">Calculate TDEE</button>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age-imperial" min="1" required>
             </div>
-        </form>
 
-        <div class="result hidden" id="result"></div>
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight-imperial" min="1" placeholder="lbs" required>
+            </div>
 
-    </div>
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="number" id="height-imperial" min="1" placeholder="inches" required>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity Level:</label>
+                <select id="activity-imperial" required>
+                    <option value="1.2">Sedentary (little or no exercise)</option>
+                    <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                    <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
+                    <option value="1.9">Super active (very hard exercise, physical job, or training twice a day)</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn" onclick="calculateTDEE('imperial')">Calculate TDEE</button>
+        </div>
+    </form>
+
+    <div class="result hidden" id="result"></div>
 
     <div class="container description">
         <p>TDEE (Total Daily Energy Expenditure) represents the total number of calories your body burns in a day, accounting for your Basal Metabolic Rate (BMR) and activity level. Our calculator uses the Mifflin-St Jeor Equation, a scientifically validated method for estimating caloric needs based on gender, age, weight, height, and activity level.</p>
     </div>
 
-<div class="container description">
-    <p>Questions? Feel free to reach out to us at tdeeplanner@gmail.com. ♡</p>
-</div>
+    <div class="container description">
+        <p>Questions? Feel free to reach out to us at tdeeplanner@gmail.com. ♡</p>
+    </div>
 
     <script>
         function switchTab(tab) {
