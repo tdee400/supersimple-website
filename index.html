@@ -21,37 +21,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-       .header-container, .container {
-    max-width: 600px; /* Ensures both header and body have the same width */
-    margin: 0 auto; /* Centers the header and body */
-    padding: 0; /* Adds consistent spacing */
-    box-sizing: border-box; /* Ensures padding doesn't stretch the width */
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #007bff; /* Nice blue color */
-    padding: 10px 20px;
-    color: white;
-    border-radius: 12px 12px 0 0;
-}
-
-.header .logo {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.header a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.header a:hover {
-    text-decoration: underline;
-}
         h1 {
             text-align: center;
             color: #002D62;
@@ -159,20 +128,8 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
- <div class="header-container">
-    <header class="header">
-        <div class="logo">TDEE Planner</div>
-        <a href="/blog">Visit Our Blog</a>
-    </header>
-</div>
-
-<div class="container">
-    <!-- Main body content -->
-    <h1>Learn how many calories you burn daily with our easy, no-nonsense TDEE calculator.</h1>
-    <p class="headline"></p>
-    <!-- ... -->
-</div>
+    <div class="container">
+        <h1>Learn how many calories you burn daily with our easy, no-nonsense TDEE calculator.</h1>
 
         <div class="tabs">
             <button class="tab active" onclick="switchTab('metric')">Metric</button>
@@ -266,7 +223,7 @@
     </div>
 
 <div class="container description">
-    <p>Questions? Feel free to reach out to us at <a href="mailto:tdeeplanner@gmail.com">tdeeplanner@gmail.com</a>♥</p>
+    <p>Questions? Feel free to reach out to us at <a href="mailto:tdeeplanner@gmail.com">tdeeplanner@gmail.com</a>❤️</p>
 </div>
 
     <script>
