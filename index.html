@@ -21,19 +21,18 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        /*h1 {
             text-align: center;
             color: #002244;
-            font-size: 14px;
-        }
+            font-size: 20px;
+        } */
 
-      .headline {
-    text-align: center;
-    color: #495057;
-    font-size: 10px; /* Make the text smaller */
-    margin-bottom: 20px;
+.headline {
+    font-size: 18px; /* Keep the size you want */
+    font-weight: bold; /* Makes the text bold */
+    font-style: italic; /* Makes the text cursive */
+    color: #495057; /* Optional: keep or adjust the color */
 }
-
         .description {
             font-size: 14px;
             color: #6c757d;
@@ -118,8 +117,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Learn how many calories you burn daily with our easy, no-nonsense TDEE calculator.</h1>
+ <div class="container">
+    <p class="headline">Learn how many calories you burn daily with our easy, no-nonsense TDEE calculator.</p>
+</div>
 
         <div class="tabs">
             <button class="tab active" onclick="switchTab('metric')">Metric</button>
