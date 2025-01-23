@@ -26,7 +26,7 @@
             color: #191970;
             font-weight: bold;
             font-style: italic;
-            font-size: 30px;
+            font-size: 40px;
         }
 
         .headline {
@@ -83,8 +83,15 @@
             border-radius: 6px;
             font-size: 16px;
             color: #495057;
+            box-sizing: border-box;  /* Ensure padding and border are included in width */
         }
 
+/* Optional: Adjust the .form-group padding to ensure consistency */
+.form-group {
+    margin-bottom: 15px;    /* Consistent spacing between form elements */
+    display: flex;          /* Flex layout for even distribution */
+    flex-direction: column; /* Stack the label, input/select vertically */
+}
         input::placeholder {
             color: #adb5bd;
         }
@@ -227,7 +234,7 @@
     </div>
 
 <div class="container description">
-    <p>Questions? Get in touch at tdeeplanner@gmail.com</a>♡</p>
+    <p>Questions? Get in touch at tdeeplanner@gmail.com</a> ♡</p>
 </div>
 
     <script>
